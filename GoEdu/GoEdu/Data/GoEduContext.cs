@@ -1,9 +1,10 @@
 ﻿using GoEdu.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace GoEdu.Data
 {
-    public class GoEduContext : DbContext
+    public class GoEduContext : IdentityDbContext<ApplicationUser>
     {
         public GoEduContext(DbContextOptions<GoEduContext> opt) : base(opt) { }
         

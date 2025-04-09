@@ -16,6 +16,8 @@ namespace GoEdu.Models
         public string VideoURL { get; set; }
         public DateTime LectureTime { get; set; }
         public string? Description { get; set; }
+        public string ImageUrl { get; internal set; }
+
         public bool isDeleted { get; set; } = false;
         public int CourseID { get; set; }
 
