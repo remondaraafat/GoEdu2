@@ -2,52 +2,92 @@
 
 @{
     ViewData["Title"] = "LectureSchedule";
+    Layout = "_AdvancedLayout";
 }
+<h1 class="text-center my-5" style="color: #fd7e14; font-weight: 600;">جدول المحاضرات</h1>
 
-<h1>LectureSchedule</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
+<p class="text-center mb-4">
+    <a class="btn btn-primary btn-lg" href="@Url.Action("Create")" role="button" style="background-color: #fd7e14; color: white;">إنشاء جديد</a>
+    <a href="/Course/Index" class="btn btn-primary btn-lg" style="background-color: midnightblue; color: white; margin-right: 8px;">الرجوع إلي الكورسات</a>
 </p>
-<table class="table">
-    <thead>
+
+<table class="table table-striped table-hover table-bordered">
+    <thead class="thead-dark">
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CourseName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LectureTime)
-            </th>
-            <th></th>
+            <th>#</th>
+            <th>العنوان</th>
+            <th>اسم الكورس</th>
+            <th>وقت المحاضرة</th>
+            <th>العمليات</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CourseName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LectureTime)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr class="animate__animated animate__fadeIn">
+                <td>@item.Title</td>
+                <td>@item.CourseName</td>
+                <td>@item.LectureTime</td>
+               
+                <td>
+                    <a href="@Url.Action("Edit", new { id = item.ID })" class="btn btn-warning btn-sm" style="color: white; margin-right: 5px;">
+                        تعديل
+                    </a>
+                    <a href="@Url.Action("Details", new { id = item.ID })" class="btn btn-info btn-sm" style="color: white; margin-right: 5px;">
+                        التفاصيل
+                    </a>
+                    <a href="@Url.Action("Delete", new { id = item.ID })" class="btn btn-danger btn-sm" style="color: white;">
+                        حذف
+                    </a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+@* <h1>LectureSchedule</h1> *@
+
+@* <p> *@
+@*     <a asp-action="Create">Create New</a> *@
+@* </p> *@
+@* <table class="table"> *@
+@*     <thead> *@
+@*         <tr> *@
+@*             <th> *@
+@*                 @Html.DisplayNameFor(model => model.ID) *@
+@*             </th> *@
+@*             <th> *@
+@*                 @Html.DisplayNameFor(model => model.Title) *@
+@*             </th> *@
+@*             <th> *@
+@*                 @Html.DisplayNameFor(model => model.CourseName) *@
+@*             </th> *@
+@*             <th> *@
+@*                 @Html.DisplayNameFor(model => model.LectureTime) *@
+@*             </th> *@
+@*             <th></th> *@
+@*         </tr> *@
+@*     </thead> *@
+@*     <tbody> *@
+@* @foreach (var item in Model) { *@
+@*         <tr> *@
+@*             <td> *@
+@*                 @Html.DisplayFor(modelItem => item.ID) *@
+@*             </td> *@
+@*             <td> *@
+@*                 @Html.DisplayFor(modelItem => item.Title) *@
+@*             </td> *@
+@*             <td> *@
+@*                 @Html.DisplayFor(modelItem => item.CourseName) *@
+@*             </td> *@
+@*             <td> *@
+@*                 @Html.DisplayFor(modelItem => item.LectureTime) *@
+@*             </td> *@
+@*             <td> *@
+@*                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) | *@
+@*                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) | *@
+@*                 @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) *@
+@*             </td> *@
+@*         </tr> *@
+@* } *@
+@*     </tbody> *@
+@* </table> *@
