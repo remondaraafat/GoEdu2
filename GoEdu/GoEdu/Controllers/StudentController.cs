@@ -15,7 +15,7 @@ namespace GoEdu.Controllers
 
         }  
         
-        public IActionResult StudentDashBoard(int StudentId)
+        public IActionResult DashBoard(int StudentId)
         {
                 VMStudentDashBoard Dashboard = new VMStudentDashBoard
                 {
@@ -28,18 +28,7 @@ namespace GoEdu.Controllers
         }
 
 
-        //public IActionResult Index(int insID = 3)
-        //{
-        //    List<StudentWithInstructorVM> student = context.Registers.Where(r=>r.InstructorID ==insID&& r.isDeleted==false).Select(s=>new StudentWithInstructorVM()
-        //    {
-        //        StdID = s.Student.ID,
-        //        StdName = s.Student.Name,
-        //        stdEmail = s.Student.Email,
-        //        StdPhone = s.Student.StudentPhone,
-        //        PrtPhone = s.Student.ParentPhone,
-        //    }).AsNoTracking().ToList();
-        //    return View(student);
-        //}
+        
         public IActionResult AllStudentsByInstructor(int instructorId)
         {
             StudentsCoursesVM StdVM = new();
@@ -62,14 +51,7 @@ namespace GoEdu.Controllers
                 StudentsfromView.Students = unitOfWork.StudentRepo.
                                             GetStudentsByCourse(StudentsfromView.CourseId);
             }
-            // filter by status 
-            //if(StudentsfromView.statusValue != 0)
-            //{
-            //    foreach (var std in StudentsfromView.Students)
-            //    {
-            //        if(StudentsfromView.statusValue == StudentsfromView.status[])
-            //    }
-            //}
+           
             
             return View("AllStudentsByInstructor", StudentsfromView);
         }

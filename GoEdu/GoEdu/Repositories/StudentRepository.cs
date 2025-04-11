@@ -12,6 +12,10 @@ namespace GoEdu.Repositories
         {
             this.ctx = ctx;
         }
+        public Student GetUserByFK(string id)
+        {
+            return ctx.Students.FirstOrDefault(s => s.ApplicationUserId == id);
+        }
 
         public List<Student> GetStudentsByInstructor(int instructorId)
         {

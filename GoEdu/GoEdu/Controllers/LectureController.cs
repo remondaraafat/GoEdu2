@@ -3,12 +3,15 @@ using GoEdu.Data;
 using GoEdu.Hubs;
 using GoEdu.Models;
 using GoEdu.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 
 namespace GoEdu.Controllers
 {
+    
+
     public class LectureController : Controller
     {
 
@@ -93,7 +96,7 @@ namespace GoEdu.Controllers
         //    Lecture lecture = UnitOfWork.LectureRepository.GetByID(id);
         //    return View(lecture);
         //}
-
+        [Authorize(Roles = "Student")]//Islam
         [HttpGet]
         public IActionResult LectureDetails(int id=1, int StudentID=1)
         {
@@ -117,11 +120,11 @@ namespace GoEdu.Controllers
                     return RedirectToAction("StudentDashBoard", "Student");
                 }
             }
-
             return View(lecture);
         }
+        [Authorize(Roles = "Instructor")]//Islam
         [HttpGet]
-        public IActionResult EditLecture(int id, int InstructorID)
+        public IActionResult EditLecture(int id, int InstructorID=1)
         {
             VMLectureWithInstructorCourses lecture = UnitOfWork.LectureRepository.GetLectureWithCourseList(id, InstructorID);
 

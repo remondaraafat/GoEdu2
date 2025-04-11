@@ -56,10 +56,8 @@ namespace GoEdu
 
                 });
             });
-
-
-
             var app = builder.Build();
+            //roles 
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())

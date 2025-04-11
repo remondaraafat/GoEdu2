@@ -27,7 +27,9 @@ namespace GoEdu.Models
         public string ParentPhone { get; set; }
         public bool isDeleted { get; set; } = false;
         public string ImageUrl { get; internal set; }
-
+        public string ApplicationUserId { get; set; }
+        // relation with application user
+        public ApplicationUser ApplicationUser { get; set; }
         public virtual List<Enroll>? Enrolls { get; set; }
         public virtual List<Attend>? Attend { get; set; }    
         public virtual List<Comment>? Comment { get; set; }

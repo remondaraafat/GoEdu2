@@ -6,5 +6,6 @@ namespace GoEdu.Repositories
     {
         public List<Student> GetStudentsByInstructor(int instructorId);
         public List<Student> GetStudentsByCourse(int instructorId);
+        public Student GetUserByFK(string id);
     }
 }

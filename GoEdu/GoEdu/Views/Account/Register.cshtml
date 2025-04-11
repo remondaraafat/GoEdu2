@@ -48,14 +48,14 @@
                 <span asp-validation-for="Phone" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="ParentPhone" class="control-label"></label>
+                <input asp-for="ParentPhone" class="form-control" />
+                <span asp-validation-for="ParentPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="ImageUrl" class="control-label"></label>
                 <input asp-for="ImageUrl" class="form-control" />
                 <span asp-validation-for="ImageUrl" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsStudent" /> @Html.DisplayNameFor(model => model.IsStudent)
-                </label>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">

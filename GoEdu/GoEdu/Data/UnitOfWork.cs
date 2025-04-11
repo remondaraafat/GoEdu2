@@ -67,15 +67,15 @@ namespace GoEdu.Data
             }
         }
 
-        //public IInstructorRepository InstructorRepo
-        //{
-        //    get
-        //    {
-        //        if (_InstructorRepo == null)
-        //            _InstructorRepo = new InstructorRepository(context);
-        //        return _InstructorRepo;
-        //    }
-        //}
+        public IInstructorRepository InstructorRepo
+        {
+            get
+            {
+                if (_InstructorRepo == null)
+                    _InstructorRepo = new InstructorRepository(context);
+                return _InstructorRepo;
+            }
+        }
 
         public ILectureRepository LectureRepository
         {

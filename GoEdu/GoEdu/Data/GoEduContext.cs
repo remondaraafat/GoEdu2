@@ -23,7 +23,21 @@ namespace GoEdu.Data
         public DbSet<StudentPerformance> StudentPerformances { get; set; }
 
         public DbSet<Option> Options { get; set; }
-        
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            builder.Entity<ApplicationUser>()
+                .HasOne(a => a.Student)
+                .WithOne(s => s.ApplicationUser)
+                .HasForeignKey<Student>(s => s.ApplicationUserId);
+
+            builder.Entity<ApplicationUser>()
+                .HasOne(a => a.Instructor)
+                .WithOne(i => i.ApplicationUser)
+                .HasForeignKey<Instructor>(i => i.ApplicationUserId);
+        }
 
 
     }
